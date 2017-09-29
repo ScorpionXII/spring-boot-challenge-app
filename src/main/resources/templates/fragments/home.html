@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="home">
+	<div class="col-md-10 col-md-offset-1">
+<!-- 		<a href="/film">Go to Films</a> -->
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					Films Filter Challenge
+				</h3>
+			</div>
+			<div class="panel-body">
+				<h4>Description</h4>
+				<p>This challenge app filters a film list using meta-sql languaje following prefix notation to group boolean operations.</p>
+				<h4>Example</h4>
+				<p><b>(and(and(price&gt;0.99)(price&lt;4))(or(category="Action")(category="Horror")))</b></p>
+				<p>The Controller is exposed at /film who looks for a parameter "q" with the filtering operation string</p>
+				<p><b>http://localhost:8080/film?q=(and(and(price&gt;0.99)(price&lt;4))(or(category="Action")(category="Horror")))</b></p>
+				<h4>Available Categories</h4>
+				<span th:each="category : ${categories}" th:text="${category.name}"></span>
+				<h4>Price</h4>
+				<p>0.99 - 4.99</p>
+			</div>
+		</div>
+	</div>
+</div>
+</html>
